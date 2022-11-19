@@ -1,45 +1,55 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import reactLogo from './assets/react.svg';
 import './App.css';
 
 function App() {
-    const [count, setCount] = useState(0);
-    const [todos] = useState([{ id: nanoid(), title: 'Learn React' }]);
+    const INIT_TODOS = [
+        {
+            id: nanoid(),
+            title: 'coding',
+            content: 'I have to code a lot.',
+            isEdited: false,
+        },
+    ];
+    const [todos, setTodos] = useState(INIT_TODOS);
+
+    const addTodo = (e) => {
+        e.preventDefault();
+
+        const { title, content } = e.currentTarget.elements;
+
+        const newTodo = {
+            id: nanoid(),
+            title: title.value,
+            content: content.value,
+            isEdited: false,
+        };
+        setTodos((prevTodos) => [...prevTodos, newTodo]);
+        e.currentTarget.reset();
+    };
+
+    const deleteTodo = (id) => {
+        setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    };
 
     return (
         <div className="App">
+            <form onSubmit={addTodo}>
+                <input type="text" name="title" placeholder="Title..." />
+                <input type="text" name="content" placeholder="Content..." />
+                <button>Add todo</button>
+            </form>
             <ul>
-                {todos.map(({ id, title }) => (
-                    <li>
-                        {id} {title}
-                    </li>
-                ))}
+                {todos.map(({ id, title, content }) => {
+                    return (
+                        <li key={id}>
+                            <h1>{title}</h1>
+                            <p>{content}</p>
+                            <button onClick={() => deleteTodo(id)}>X</button>
+                        </li>
+                    );
+                })}
             </ul>
-            <div>
-                <a href="https://vitejs.dev" rel="noreferrer" target="_blank">
-                    <img src="/vite.svg" className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://reactjs.org" rel="noreferrer" target="_blank">
-                    <img
-                        src={reactLogo}
-                        className="logo react"
-                        alt="React logo"
-                    />
-                </a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
         </div>
     );
 }
