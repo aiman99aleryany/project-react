@@ -3,11 +3,7 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
-    ],
+    extends: ['eslint:recommended', 'plugin:react/recommended'],
     overrides: [],
     parserOptions: {
         ecmaVersion: 'latest',
@@ -17,6 +13,6 @@ module.exports = {
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
-        'react/jsx-key': [{ checkFragmentShorthand: true }],
+        'react/prop-types': 0,
     },
 };

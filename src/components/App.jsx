@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import './App.css';
+import Example from './Example';
 
-function App() {
-    const INIT_TODOS = [
-        {
-            id: nanoid(),
-            title: 'coding',
-            content: 'I have to code a lot.',
-            isEdited: false,
-        },
-    ];
+const INIT_TODOS = [
+    {
+        id: nanoid(),
+        title: 'coding',
+        content: 'I have to code a lot.',
+        isEdited: false,
+    },
+];
+
+const App = () => {
     const [todos, setTodos] = useState(INIT_TODOS);
 
     const addTodo = (e) => {
@@ -35,9 +36,7 @@ function App() {
     const isEditedToggle = (id, e) => {
         e.preventDefault();
         setTodos((todos) =>
-            todos.map((todo) =>
-                todo.id === id ? { ...todo, isEdited: !todo.isEdited } : todo
-            )
+            todos.map((todo) => (todo.id === id ? { ...todo, isEdited: !todo.isEdited } : todo))
         );
     };
 
@@ -61,6 +60,7 @@ function App() {
 
     return (
         <div className="App">
+            <Example />
             <form onSubmit={addTodo}>
                 <input type="text" name="title" placeholder="Title..." />
                 <input type="text" name="content" placeholder="Content..." />
@@ -71,30 +71,18 @@ function App() {
                     return isEdited ? (
                         <li key={id}>
                             <form onSubmit={(e) => editTodo(id, e)}>
-                                <input
-                                    type="text"
-                                    name="title"
-                                    defaultValue={title}
-                                />
-                                <input
-                                    type="text"
-                                    name="content"
-                                    defaultValue={content}
-                                />
+                                <input type="text" name="title" defaultValue={title} />
+                                <input type="text" name="content" defaultValue={content} />
                                 <button>Confirm</button>
                             </form>
 
-                            <button onClick={(e) => isEditedToggle(id, e)}>
-                                unedit
-                            </button>
+                            <button onClick={(e) => isEditedToggle(id, e)}>unedit</button>
                         </li>
                     ) : (
                         <li key={id}>
                             <h1>{title}</h1>
                             <p>{content}</p>
-                            <button onClick={(e) => isEditedToggle(id, e)}>
-                                edit
-                            </button>
+                            <button onClick={(e) => isEditedToggle(id, e)}>edit</button>
                             <button onClick={() => deleteTodo(id)}>X</button>
                         </li>
                     );
@@ -102,6 +90,6 @@ function App() {
             </ul>
         </div>
     );
-}
+};
 
 export default App;

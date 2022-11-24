@@ -1,12 +1,14 @@
 {
     "name": "project-react",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.0.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview"
+        "preview": "vite preview",
+        "sass": "sass ./src/styles/index.scss ./src/styles/dist/index.css --watch",
+        "prettier": "npx prettier . --write"
     },
     "prettier": {
         "trailingComma": "es5",
@@ -23,9 +25,10 @@
         "@types/react": "^18.0.24",
         "@types/react-dom": "^18.0.8",
         "@vitejs/plugin-react": "^2.2.0",
-        "eslint": "^8.27.0",
+        "eslint": "^8.28.0",
         "eslint-plugin-react": "^7.31.10",
         "prettier": "^2.7.1",
+        "sass": "^1.56.1",
         "vite": "^3.2.3"
     }
 }
