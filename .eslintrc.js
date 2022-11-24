@@ -6,7 +6,6 @@ module.exports = {
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:react/jsx-runtime',
     ],
     overrides: [],
     parserOptions: {
@@ -17,6 +16,6 @@ module.exports = {
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
-        'react/jsx-key': [{ checkFragmentShorthand: true }],
+        'react/prop-types': 0,
     },
 };
