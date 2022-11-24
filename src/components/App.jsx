@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
+import Example from './Example';
 
 const INIT_TODOS = [
     {
@@ -59,6 +60,7 @@ const App = () => {
 
     return (
         <div className="App">
+            <Example />
             <form onSubmit={addTodo}>
                 <input type="text" name="title" placeholder="Title..." />
                 <input type="text" name="content" placeholder="Content..." />

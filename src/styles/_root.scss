@@ -1,0 +1,32 @@
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #242424;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+// light theme class
+[data-theme='light'] {
+    --cmpt-example-box-outer-bg: white;
+    --cmpt-example-box-inner-bg: black;
+}
+
+// dark theme class
+[data-theme='dark'] {
+    --cmpt-example-box-outer-bg: grey;
+    --cmpt-example-box-inner-bg: purple;
+}
+
+// colors vars
+$cmpt_example_box_outer_bg: var(--cmpt-example-box-outer-bg);
+$cmpt_example_box_inner_bg: var(--cmpt-example-box-inner-bg);
