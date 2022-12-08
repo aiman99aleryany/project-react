@@ -1,7 +1,9 @@
 import React from 'react';
+import { RouterProvider, Route } from 'react-router-dom';
 import { createRoot } from 'react-dom/client';
 import App from './components/App.jsx';
 import './styles/dist/index.css';
+import routes from './routes';
 
 const runApplication = () => {
     const container = document.querySelector('#root');
@@ -10,7 +12,7 @@ const runApplication = () => {
 
     root.render(
         <React.StrictMode>
-            <App />
+            <RouterProvider router={routes} />
         </React.StrictMode>
     );
 };
