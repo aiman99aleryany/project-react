@@ -1,0 +1,13 @@
+
+[data-theme='light'] {
+    --app-background: #cce3d2;
+    --nav-font-color: black;
+}
+
+[data-theme='dark'] {
+    --app-background: #242424;
+    --nav-font-color: white;
+}
+
+$app_background: var(--app-background);
+$nav_font_color: var(--nav-font-color);
