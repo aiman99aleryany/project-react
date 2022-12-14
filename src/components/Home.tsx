@@ -25,7 +25,7 @@ initStore(QUOTES_STORE_KEY, INIT_QUOTES);
 const Home = (): ReactElement => {
     const [newQuote, setNewQuote]: [string, any] = useState('');
     const [editQuote, setEditQuote]: [string, any] = useState('');
-    const [quotes, setQuotes] = useState(INIT_QUOTES);
+    const [quotes, setQuotes] = useState(getStore(QUOTES_STORE_KEY));
 
     const handleNewQuote = (e: any): void => setNewQuote(e.target.value);
 
