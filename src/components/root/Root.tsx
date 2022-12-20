@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useState } from 'react';
-import NavBar from './NavBar';
+import NavBar from '../navbar/NavBar';
 
 const Root = (): ReactElement => {
     return (

@@ -1,21 +1,11 @@
-import { ReactElement } from 'react';
-import Root from '../components/Root';
-import Home from '../components/Home';
-import About from '../components/About';
-import Contact from '../components/Contact';
+import Root from '../components/root/Root';
+import Home from '../components/home/Home';
+import About from '../components/about/About';
+import Contact from '../components/contact/Contact';
+import { NestedRouters } from '../interfaces/AppRouters';
 
-interface simpleRouterType {
-    path: string;
-    element: ReactElement;
-}
 
-interface nestedRouterType {
-    path: string;
-    element: ReactElement;
-    children?: simpleRouterType[];
-}
-
-const AppRouters: nestedRouterType[] = [
+const AppRouters: NestedRouters = [
     {
         path: '/',
         element: <Root />,

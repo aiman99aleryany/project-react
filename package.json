@@ -7,7 +7,8 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "preview": "vite preview",
-        "sass": "sass ./src/styles/index.scss ./src/styles/dist/index.css --watch"
+        "sass": "sass ./src/styles/index.scss ./src/styles/dist/index.css --watch",
+        "prettier": "npx prettier . --write"
     },
     "prettier": {
         "trailingComma": "es5",
@@ -16,6 +17,7 @@
         "tabWidth": 4
     },
     "dependencies": {
+        "@types/react-router-dom": "^5.3.3",
         "nanoid": "^4.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
